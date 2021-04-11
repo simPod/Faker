@@ -15,9 +15,9 @@ class Base
     protected $generator;
 
     /**
-     * @var \Faker\UniqueGenerator
+     * @var \Faker\UniqueGenerator|null
      */
-    protected $unique;
+    protected $unique = null;
 
     public function __construct(Generator $generator)
     {
@@ -621,7 +621,7 @@ class Base
      */
     public function unique($reset = false, $maxRetries = 10000)
     {
-        if ($reset || !$this->unique) {
+        if ($reset || $this->unique === null) {
             $this->unique = new UniqueGenerator($this->generator, $maxRetries);
         }
 
