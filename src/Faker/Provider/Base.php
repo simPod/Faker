@@ -17,7 +17,7 @@ class Base
     /**
      * @var \Faker\UniqueGenerator|null
      */
-    protected $unique = null;
+    protected $unique;
 
     public function __construct(Generator $generator)
     {
